@@ -7,7 +7,7 @@ clean code
 
 ## python environments
 
-`conda env list`
-`conda activate [env]`
-
-## ai
+`pyenv versions`
+`pyenv virtualenvs`
+`pyenv activate [env]` // using 3.11.3 as a base
+`pip freeze -r requirements.txt`
