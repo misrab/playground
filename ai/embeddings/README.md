@@ -32,7 +32,11 @@ Training the "embeddings" then simply means training the whole neural network as
 
 Often I've seen this done in a "self-supervised" way. "Unsupervised" models would take unlabbeled data and try to do something with it, such as find clusters. "Supervised" learning requires labelled data. "Self-supervised" is just a nice term to mean taking the data you have, hiding parts of each input and using that to predict the missing patch, which is then kind of like a label. Hence "self-supervised". In the textual case this means removing a word and trying to predict it from its context words (or vice-versa)[^5]. In the visual case this would be predicting missing patches from an image, although word on the street is we haven't quite been able to get good features out of that yet[^6] (in other words the generatively obtained embeddings don't particularly seem to help with other other tasks, so might not be useful representations). So intuitively a self-supervised approach is attempting to project stuff onto a lower dimensional manifold based on the notion that context in the input provides an idea of what the input "is".
 
-That said, the neural net need not be trained in a self-supervised manner to obtain embeddings in the first linear layer with one-hot encoding of inputs. An interesting question would be how embeddings differ based on how they are trained, including how portable across tasks they are. I do not have the full answer here.
+![word2vec](./images/word2vec.png)
+
+_From the Word2Vec paper. CBOW stands for "Continuous Bag of Words"_
+
+That said, the neural net need not be trained in a self-supervised manner to obtain embeddings in the first linear layer with one-hot encoding of inputs. An interesting question would be how embeddings differ based on how they are trained, including how portable across tasks they are. I do not explore the full answer here.
 
 ### Musings
 
@@ -41,6 +45,10 @@ We've mentionned how embeddings might be sensitive to the training method and ob
 Another interesting question would be whether embeddings have to be found in a linear first layer. After all, we've just arbitrarily taken a layer in the neural network and interpreted the weights as representations of the input. Is anything stopping us from applying a few more, possibly non-linear transformations to the data before claiming to have a good low dimensional representaion of the data? After all, this what autoencoders do, although there we refer to the representation as "latent space":
 
 ![autoencoder](./images/autoencoder.png)
+
+_An illustration of an autoencoder_
+
+Interestingly, a vanilla autoencoder tries to represent the input so as to be able to regenerate _all_ of it. So it's self-supervised as with embeddings, except instead of trying to represent the input so that similar contexts give similar representations, we're
 
 ## Footnotes
 
