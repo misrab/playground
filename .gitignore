@@ -1,0 +1,37 @@
+# env / secrets
+.env
+.venv/
+venv/
+env/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# jupyter
+.ipynb_checkpoints/
+
+# local data & artifacts (keep notebooks + small figures)
+data/
+checkpoints/
+wandb/
+runs/
+outputs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.h5
+*.onnx
+
+# caches
+.cache/
+.huggingface/
+.jax_cache/
+
+# os / ide
+.DS_Store
+.idea/
+.vscode/
